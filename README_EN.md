@@ -10,7 +10,7 @@ A web-based application that generates real random address information based on 
 
 ## Access
 
-https://ip-geoaddress-generator.pages.dev/
+https://ip-8hq.pages.dev/
 
 ## Key Features
 
@@ -49,12 +49,12 @@ docker run -p 3000:3000 guoogaii/ip-geoaddress-generator:latest
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/GuooGaii/ip-geoaddress-generator.git
+   git clone https://github.com/hughes53/ip.git
    ```
 
 2. Install dependencies:
    ```bash
-   cd ip-geoaddress-generator
+   cd ip
    npm install
    ```
 

@@ -8,6 +8,12 @@ export interface User {
     name: string;
     value: string;
   };
+  // 新增的身份信息字段
+  birthday?: string;
+  bloodType?: 'A' | 'B' | 'AB' | 'O';
+  occupation?: string;
+  education?: string;
+  creditCard?: string;
 }
 
 export interface Coordinates {
@@ -31,6 +37,17 @@ export interface HistoryRecord {
   ip: string;
   timestamp: number;
   isStarred?: boolean;
+}
+
+// 导出格式类型
+export type ExportFormat = 'json' | 'csv' | 'pdf' | 'excel';
+
+// 批量生成选项
+export interface BatchGenerateOptions {
+  count: number;
+  countries: string[];
+  includeEmail: boolean;
+  includeAddress: boolean;
 }
 
 interface ISourceResource {

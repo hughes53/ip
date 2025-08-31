@@ -48,6 +48,32 @@ export function UserInfo({
       label: "邮箱",
       getValue: (_, email) => email,
     },
+    // 新增的身份信息字段
+    {
+      id: "birthday",
+      label: "生日",
+      getValue: (user) => user.birthday ? new Date(user.birthday).toLocaleDateString('zh-CN') : "暂无",
+    },
+    {
+      id: "bloodType",
+      label: "血型",
+      getValue: (user) => user.bloodType ? `${user.bloodType}型` : "暂无",
+    },
+    {
+      id: "occupation",
+      label: "职业",
+      getValue: (user) => user.occupation || "暂无",
+    },
+    {
+      id: "education",
+      label: "学历",
+      getValue: (user) => user.education || "暂无",
+    },
+    {
+      id: "creditCard",
+      label: "信用卡",
+      getValue: (user) => user.creditCard || "暂无",
+    },
   ];
 
   return (

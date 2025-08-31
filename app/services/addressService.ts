@@ -62,6 +62,45 @@ export default class WFDService {
   }
 
   /**
+   * 生成单个随机用户
+   * @param country 国家代码，默认为 'US'
+   * @returns {Promise<User>} 单个用户对象
+   */
+  async generateRandomUser(country: string = 'US'): Promise<User> {
+    try {
+      const response = await this.getRandomUser(country);
+      return response.results[0];
+    } catch (error) {
+      // 如果API失败，返回默认用户
+      console.warn('API failed, generating default user');
+      return this.generateDefaultUser(country);
+    }
+  }
+
+  /**
+   * 生成默认用户（当API失败时使用）
+   */
+  private generateDefaultUser(country: string): User {
+    const firstNames = ['John', 'Jane', 'Michael', 'Sarah', 'David', 'Lisa'];
+    const lastNames = ['Smith', 'Johnson', 'Williams', 'Brown', 'Jones', 'Garcia'];
+
+    const firstName = firstNames[Math.floor(Math.random() * firstNames.length)];
+    const lastName = lastNames[Math.floor(Math.random() * lastNames.length)];
+
+    return {
+      name: {
+        first: firstName,
+        last: lastName
+      },
+      phone: `+1-${Math.floor(Math.random() * 900 + 100)}-${Math.floor(Math.random() * 900 + 100)}-${Math.floor(Math.random() * 9000 + 1000)}`,
+      id: {
+        name: 'SSN',
+        value: `${Math.floor(Math.random() * 900 + 100)}-${Math.floor(Math.random() * 90 + 10)}-${Math.floor(Math.random() * 9000 + 1000)}`
+      }
+    };
+  }
+
+  /**
    * 获取坐标
    * @param country 国家
    * @param state 省份
