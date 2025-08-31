@@ -24,8 +24,8 @@ const nextConfig: NextConfig = {
 
   // 实验性功能配置
   experimental: {
-    // 只在生产构建时禁用 webpackBuildWorker
-    webpackBuildWorker: process.env.NODE_ENV === 'production' ? false : undefined,
+    // 完全禁用 webpackBuildWorker 以避免 Cloudflare Pages 构建问题
+    webpackBuildWorker: false,
   },
 
   // Webpack 配置 - 只在生产环境禁用缓存
