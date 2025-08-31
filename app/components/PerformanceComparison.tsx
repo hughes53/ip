@@ -67,7 +67,7 @@ export function PerformanceComparison({ isVisible, onClose }: PerformanceCompari
     if (isVisible && !optimizedMetrics && !standardMetrics) {
       simulatePerformanceTest();
     }
-  }, [isVisible]);
+  }, [isVisible, optimizedMetrics, standardMetrics]);
 
   if (!isVisible) return null;
 
