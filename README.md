@@ -16,9 +16,6 @@
 
 https://ip-8hq.pages.dev/
 
-
-https://N.eattea.uk/
-
 ## 主要功能
 
 ### 地址生成
@@ -27,7 +24,6 @@ https://N.eattea.uk/
 - 生成完整的随机地址信息
   - 姓名
   - 电话
-  - 邮箱
   - 国家
   - 省/州
   - 城市
