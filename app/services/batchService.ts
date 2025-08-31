@@ -43,10 +43,10 @@ export class BatchService {
 
             // 根据IP获取坐标
             const coordinates = await this.addressService.getIPCoordinates(ip);
-
+            
             // 根据坐标生成地址
             const addressResult = await this.addressService.getRandomAddress(
-              coordinates.latitude,
+              coordinates.latitude, 
               coordinates.longitude
             );
             address = addressResult;
