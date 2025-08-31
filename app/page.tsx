@@ -12,7 +12,6 @@ import type { HistoryRecord, TempMailMessage } from "@/app/types";
 import { IdentityService } from "@/app/services/identityService";
 
 import { Text, Flex, Box } from "@radix-ui/themes";
-//import { InboxDialog } from "./components/InboxDialog";
 import { TopBar } from "./components/TopBar";
 import { Toast } from "./components/Toast";
 import { Header } from "./components/Header";
