@@ -63,7 +63,6 @@ export default function Home() {
     setSelectedMessage,
     setToastMessage,
     handleMessageClick,
-    availableDomains,
   } = useLocalMail();
 
 

@@ -1,4 +1,5 @@
 // 纯本地邮箱生成服务 - 无需API调用
+import axios from "axios";
 import type { TempMailMessage, MailEvent } from "@/app/types";
 
 // 固定域名池 - 指定的6个域名
@@ -77,11 +78,12 @@ class OptimizedMailService {
    * @returns Promise<MailResponse<MailAccount>>
    */
   async createOneAccount(): Promise<MailResponse<MailAccount>> {
+    const username = this.generateMeaningfulUsername();
+    const domain = this.getRandomDomain();
+    const email = `${username}@${domain}`;
+    const password = this.generateRandomPassword();
+
     try {
-      const username = this.generateMeaningfulUsername();
-      const domain = this.getRandomDomain();
-      const email = `${username}@${domain}`;
-      const password = this.generateRandomPassword();
 
       console.log("🎯 创建纯单词邮箱账户:");
       console.log("👤 纯单词用户名:", username);
