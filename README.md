@@ -15,6 +15,7 @@
 ## 访问地址
 
 https://ip-8hq.pages.dev/
+https://N.eattea.uk/
 
 ## 主要功能
 
@@ -24,6 +25,7 @@ https://ip-8hq.pages.dev/
 - 生成完整的随机地址信息
   - 姓名
   - 电话
+  - 邮箱
   - 国家
   - 省/州
   - 城市
