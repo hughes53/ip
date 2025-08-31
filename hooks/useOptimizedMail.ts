@@ -55,8 +55,8 @@ export default function useOptimizedMail(): UseOptimizedMailReturn {
               console.log("🔗 邮件事件监听已启动");
             });
 
-            // 修复类型错误：明确指定 error 参数类型
-            optimizedMailService.on("error", (error: Error | any) => {
+            // 修复类型错误：使用 unknown 类型
+            optimizedMailService.on("error", (error: unknown) => {
               console.error("❌ 邮件事件监听错误:", error);
             });
             
