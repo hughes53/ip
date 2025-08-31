@@ -4,6 +4,12 @@
 # Next.js 缓存
 cache/
 .next/cache/
+.cache/
+*.cache
+webpack-cache/
+**/cache/**
+**/webpack/**
+**/*.pack
 
 # Node modules
 node_modules/
