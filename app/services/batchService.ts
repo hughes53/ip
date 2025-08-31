@@ -90,8 +90,8 @@ export class BatchService {
     // 这里可以根据不同国家生成不同的用户信息
     // 目前使用通用的生成逻辑
     try {
-      const userResult = await this.addressService.generateRandomUser();
-      return userResult;
+      const userResponse = await this.addressService.getRandomUser(country);
+      return userResponse.results[0];
     } catch (error) {
       // 如果API失败，生成默认用户
       return this.generateDefaultUser(country);
