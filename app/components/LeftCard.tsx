@@ -11,6 +11,7 @@ import {
 import { ReloadIcon } from "@radix-ui/react-icons";
 import { AddressSelector } from "./AddressSelector";
 import { HistoryList } from "./HistoryList";
+import { BatchGenerateDialog } from "./BatchGenerateDialog";
 import { HistoryRecord } from "../types";
 import { ipSignal } from "@/signals/ipSignal";
 
@@ -27,6 +28,7 @@ interface LeftCardProps {
   onDeleteRecord: (id: string) => void;
   onDeleteAll: () => void;
   onToggleStarred: (id: string) => void;
+  onBatchGenerated: (records: HistoryRecord[]) => void;
 }
 
 export const LeftCard = ({
@@ -42,6 +44,7 @@ export const LeftCard = ({
   onDeleteRecord,
   onDeleteAll,
   onToggleStarred,
+  onBatchGenerated,
 }: LeftCardProps) => {
   return (
     <Card size="4" style={{ flex: 2 }} className="hidden md:flex">
@@ -90,6 +93,11 @@ export const LeftCard = ({
               <Text>{isLoading ? "生成中..." : "生成地址"}</Text>
               <ReloadIcon className={isLoading ? "animate-spin" : ""} />
             </Button>
+          </Flex>
+
+          {/* 批量生成按钮 */}
+          <Flex justify="center" mt="2">
+            <BatchGenerateDialog onBatchGenerated={onBatchGenerated} />
           </Flex>
         </Box>
         <Separator size="4" />

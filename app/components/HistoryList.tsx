@@ -7,15 +7,17 @@ import {
   Badge,
   Button,
   Flex,
+  DropdownMenu,
 } from "@radix-ui/themes";
 import {
   TrashIcon,
   DownloadIcon,
   StarIcon,
   StarFilledIcon,
+  ChevronDownIcon,
 } from "@radix-ui/react-icons";
-import type { HistoryRecord } from "../types";
-import WFDService from "../services/addressService";
+import type { HistoryRecord, ExportFormat } from "../types";
+import { ExportService } from "../services/exportService";
 
 interface HistoryListProps {
   history: HistoryRecord[];
@@ -44,17 +46,11 @@ export function HistoryList({
     onToggleStarred(id);
   };
 
-  const handleExportJSON = () => {
-    const service = new WFDService();
-    const blob = service.exportHistory(history);
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = service.getExportFileName();
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+  const handleExport = (format: ExportFormat) => {
+    const exportService = new ExportService();
+    const blob = exportService.exportData(history, format);
+    const filename = exportService.getExportFileName(format);
+    exportService.downloadFile(blob, filename);
   };
 
   return (
@@ -143,10 +139,29 @@ export function HistoryList({
           <>
             <Separator size="4" my="3" />
             <Flex justify="between" gap="3">
-              <Button size="2" variant="soft" onClick={handleExportJSON}>
-                <Text>导出JSON</Text>
-                <DownloadIcon />
-              </Button>
+              <DropdownMenu.Root>
+                <DropdownMenu.Trigger>
+                  <Button size="2" variant="soft">
+                    <Text>导出数据</Text>
+                    <DownloadIcon />
+                    <ChevronDownIcon />
+                  </Button>
+                </DropdownMenu.Trigger>
+                <DropdownMenu.Content>
+                  <DropdownMenu.Item onClick={() => handleExport('json')}>
+                    <Text>导出为 JSON</Text>
+                  </DropdownMenu.Item>
+                  <DropdownMenu.Item onClick={() => handleExport('csv')}>
+                    <Text>导出为 CSV</Text>
+                  </DropdownMenu.Item>
+                  <DropdownMenu.Item onClick={() => handleExport('excel')}>
+                    <Text>导出为 Excel</Text>
+                  </DropdownMenu.Item>
+                  <DropdownMenu.Item onClick={() => handleExport('pdf')}>
+                    <Text>导出为 PDF</Text>
+                  </DropdownMenu.Item>
+                </DropdownMenu.Content>
+              </DropdownMenu.Root>
               <Button size="2" color="red" variant="soft" onClick={onDeleteAll}>
                 <Text>删除全部</Text>
                 <TrashIcon />
