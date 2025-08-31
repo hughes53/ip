@@ -9,6 +9,7 @@ import useHistory from "@/hooks/useHistory";
 import useLocalMail from "@/hooks/useLocalMail";
 
 import type { HistoryRecord, TempMailMessage } from "@/app/types";
+import { IdentityService } from "@/app/services/identityService";
 
 import { Text, Flex, Box } from "@radix-ui/themes";
 import { InboxDialog } from "./components/InboxDialog";
@@ -84,11 +85,20 @@ export default function Home() {
       userSignal.value &&
       addressSignal.value
     ) {
+      // 确保用户信息已经被增强
+      const identityService = new IdentityService();
+      const enhancedUser = userSignal.value.birthday
+        ? userSignal.value
+        : identityService.enhanceUser(userSignal.value);
+
       addHistoryRecord({
-        user: userSignal.value,
+        user: enhancedUser,
         address: addressSignal.value,
         ip: ipSignal.value,
       });
+
+      // 更新signal中的用户信息
+      userSignal.value = enhancedUser;
       hasAddedInitialHistory.current = true;
     }
   });
@@ -112,11 +122,20 @@ export default function Home() {
           await fetchUser();
           await fetchAddress();
           if (userSignal.value && addressSignal.value && ipSignal.value) {
+            // 确保用户信息已经被增强
+            const identityService = new IdentityService();
+            const enhancedUser = userSignal.value.birthday
+              ? userSignal.value
+              : identityService.enhanceUser(userSignal.value);
+
             addHistoryRecord({
-              user: userSignal.value,
+              user: enhancedUser,
               address: addressSignal.value,
               ip: ipSignal.value,
             });
+
+            // 更新signal中的用户信息
+            userSignal.value = enhancedUser;
           }
         } catch (err) {
           setError("获取地址失败");
@@ -132,11 +151,20 @@ export default function Home() {
           await fetchAddress();
           await fetchUser();
           if (userSignal.value && addressSignal.value && ipSignal.value) {
+            // 确保用户信息已经被增强
+            const identityService = new IdentityService();
+            const enhancedUser = userSignal.value.birthday
+              ? userSignal.value
+              : identityService.enhanceUser(userSignal.value);
+
             addHistoryRecord({
-              user: userSignal.value,
+              user: enhancedUser,
               address: addressSignal.value,
               ip: ipSignal.value,
             });
+
+            // 更新signal中的用户信息
+            userSignal.value = enhancedUser;
           }
         } catch (err) {
           setError("获取地址失败");
@@ -152,12 +180,41 @@ export default function Home() {
     setSelectedHistory(record.id);
     // 直接使用历史记录中的数据，不触发任何请求
     addressSignal.value = record.address;
-    userSignal.value = record.user;
+
+    // 如果历史记录中的用户信息没有增强字段，进行增强
+    const identityService = new IdentityService();
+    const enhancedUser = record.user.birthday
+      ? record.user
+      : identityService.enhanceUser(record.user);
+
+    userSignal.value = enhancedUser;
   };
 
   const handleToastClick = (message: TempMailMessage) => {
     setInboxOpen(true);
     setSelectedMessage(message);
+  };
+
+  const handleBatchGenerated = (records: HistoryRecord[]) => {
+    // 为每个记录增强身份信息
+    const identityService = new IdentityService();
+    const enhancedRecords = records.map(record => ({
+      ...record,
+      user: identityService.enhanceUser(record.user)
+    }));
+
+    // 批量添加到历史记录
+    enhancedRecords.forEach(record => {
+      addHistoryRecord(record);
+    });
+
+    // 选择第一个记录进行显示
+    if (enhancedRecords.length > 0) {
+      const firstRecord = enhancedRecords[0];
+      setSelectedHistory(firstRecord.id);
+      addressSignal.value = firstRecord.address;
+      userSignal.value = firstRecord.user;
+    }
   };
 
   return (
@@ -202,6 +259,7 @@ export default function Home() {
             onDeleteRecord={deleteHistoryRecord}
             onDeleteAll={deleteAllHistory}
             onToggleStarred={toggleStarred}
+            onBatchGenerated={handleBatchGenerated}
           />
 
           {/* 右侧卡片 */}
