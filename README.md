@@ -14,7 +14,7 @@
 
 ## 访问地址
 
-https://ip-geoaddress-generator.pages.dev/
+https://ip-8hq.pages.dev/
 
 ## 主要功能
 
@@ -41,24 +41,43 @@ https://ip-geoaddress-generator.pages.dev/
 
 ## 部署
 
-[Cloudflare部署](https://github.com/GuooGaii/ip-geoaddress-generator/blob/main/Cloudflare部署教程.md)
+### Cloudflare Pages (推荐)
 
-Docker部署
+⚠️ **重要配置**:
+
+```
+Framework preset: Next.js (Static HTML Export)
+Build command: npm run build
+Build output directory: out  ← 必须是 "out"，不是 ".next"
+Node.js version: 20.17.0
+Root directory: (留空)
+```
+
+详细教程: [Cloudflare部署教程.md](./Cloudflare部署教程.md)
+
+### Docker部署
 
 ```bash
 docker run -p 3000:3000 guoogaii/ip-geoaddress-generator:latest
+```
+
+### 静态部署
+
+```bash
+npm run build
+# 构建输出在 out/ 目录，可部署到任何静态托管服务
 ```
 
 ## 本地开发
 
 1. 克隆仓库：
    ```bash
-   git clone https://github.com/GuooGaii/ip-geoaddress-generator.git
+   git clone https://github.com/hughes53/ip.git
    ```
 
 2. 安装依赖：
    ```bash
-   cd ip-geoaddress-generator
+   cd ip
    npm install
    ```
 
