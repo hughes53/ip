@@ -56,7 +56,7 @@ export default function useOptimizedMail(): UseOptimizedMailReturn {
             });
 
             // 修复类型错误：明确指定 error 参数类型
-            optimizedMailService.on("error", (error: Error | any) => {
+            optimizedMailService.on("error", (error: unknown) => {
               console.error("❌ 邮件事件监听错误:", error);
             });
             
