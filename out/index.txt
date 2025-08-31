@@ -1,0 +1,26 @@
+1:"$Sreact.fragment"
+2:I[7575,["726","static/chunks/726-af9e0779db479187.js","177","static/chunks/app/layout-60e875b124f51536.js"],"default"]
+3:I[5894,["726","static/chunks/726-af9e0779db479187.js","177","static/chunks/app/layout-60e875b124f51536.js"],"default"]
+4:I[7555,[],""]
+5:I[1295,[],""]
+6:I[894,[],"ClientPageRoot"]
+7:I[6214,["105","static/chunks/0e5ce63c-8c99867c347bb88f.js","726","static/chunks/726-af9e0779db479187.js","849","static/chunks/849-55af74c47056b4d0.js","974","static/chunks/app/page-01ce0e97efaab758.js"],"default"]
+a:I[9665,[],"MetadataBoundary"]
+c:I[9665,[],"OutletBoundary"]
+f:I[4911,[],"AsyncMetadataOutlet"]
+11:I[9665,[],"ViewportBoundary"]
+13:I[6614,[],""]
+:HL["/_next/static/css/dbd2812aeb31ae93.css","style"]
+:HL["/_next/static/css/902d2b27bbb29f78.css","style"]
+:HL["/_next/static/css/a9c341e90d6c0d30.css","style"]
+0:{"P":null,"b":"Bvf6-JgI7gEL9Qt7xmwdL","p":"","c":["",""],"i":false,"f":[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/dbd2812aeb31ae93.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/css/902d2b27bbb29f78.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"zh","suppressHydrationWarning":true,"children":["$","body",null,{"className":"__className_3a0388","children":["$","$L2",null,{"children":["$","$L3",null,{"children":["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]}]]}],{"children":["__PAGE__",["$","$1","c",{"children":[["$","$L6",null,{"Component":"$7","searchParams":{},"params":{},"promises":["$@8","$@9"]}],["$","$La",null,{"children":"$Lb"}],[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/a9c341e90d6c0d30.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","$Lc",null,{"children":["$Ld","$Le",["$","$Lf",null,{"promise":"$@10"}]]}]]}],{},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","FYDCVezX5izOMh7QKI3yd",{"children":[["$","$L11",null,{"children":"$L12"}],null]}],null]}],false]],"m":"$undefined","G":["$13","$undefined"],"s":false,"S":true}
+14:"$Sreact.suspense"
+15:I[4911,[],"AsyncMetadata"]
+8:{}
+9:{}
+b:["$","$14",null,{"fallback":null,"children":["$","$L15",null,{"promise":"$@16"}]}]
+e:null
+12:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+d:null
+16:{"metadata":[["$","title","0",{"children":"真实地址生成器"}],["$","meta","1",{"name":"description","content":"基于IP地址生成真实地址"}],["$","meta","2",{"name":"author","content":"GuooGaii"}],["$","meta","3",{"name":"keywords","content":"IP地址, 地址生成器, 地理位置, IP定位, IP查询, IP地址查询, 地理位置查询, 位置生成器, 地址查询工具, IP工具, 地址定位, 位置信息"}],["$","meta","4",{"name":"robots","content":"index, follow"}],["$","meta","5",{"property":"og:title","content":"真实地址生成器"}],["$","meta","6",{"property":"og:description","content":"基于IP地址生成真实地址"}],["$","meta","7",{"property":"og:site_name","content":"真实地址生成器"}],["$","meta","8",{"property":"og:locale","content":"zh_CN"}],["$","meta","9",{"property":"og:type","content":"website"}],["$","meta","10",{"name":"twitter:card","content":"summary"}],["$","meta","11",{"name":"twitter:title","content":"真实地址生成器"}],["$","meta","12",{"name":"twitter:description","content":"基于IP地址生成真实地址"}],["$","link","13",{"rel":"icon","href":"/favicon.ico","type":"image/x-icon","sizes":"16x16"}]],"error":null,"digest":"$undefined"}
+10:{"metadata":"$16:metadata","error":null,"digest":"$undefined"}
