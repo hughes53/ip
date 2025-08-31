@@ -1,0 +1,32 @@
+# Cloudflare Pages ignore file
+# 忽略大文件和缓存文件
+
+# Next.js 缓存
+cache/
+.next/cache/
+
+# Node modules
+node_modules/
+
+# 构建缓存
+.cache/
+*.cache
+
+# 大型资源文件
+*.pack
+*.node
+*.dll
+*.wasm
+
+# 开发文件
+*.log
+*.tmp
+*.temp
+
+# 文档文件（可选）
+*.md
+!README.md
+
+# 测试文件
+test-*.js
+scripts/test-*.js
